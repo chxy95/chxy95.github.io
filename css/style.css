@@ -1,313 +1,481 @@
+/* ============================================================
+   Personal Homepage — Modern Academic Theme
+   Color palette:
+     --bg          #f4f6fa  (page background, soft blue-gray)
+     --card        #ffffff  (content card)
+     --ink         #1f2937  (primary text)
+     --muted       #4b5563  (secondary text)
+     --accent      #1e5b8c  (link / accent — deep ocean blue)
+     --accent-soft #e8f1fa  (accent backgrounds, pills)
+     --highlight   #b8264a  (own name / champion / spotlight)
+     --rule        #e5e9f0  (borders, separators)
+   ============================================================ */
+
+:root {
+    --bg:          #f4f6fa;
+    --card:        #ffffff;
+    --ink:         #1f2937;
+    --muted:       #4b5563;
+    --accent:      #1e5b8c;
+    --accent-2:    #2d78ad;
+    --accent-soft: #e8f1fa;
+    --highlight:   #b8264a;
+    --rule:        #e5e9f0;
+    --shadow-sm:   0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+    --shadow-md:   0 4px 12px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(15, 23, 42, 0.04);
+    --shadow-lg:   0 10px 30px rgba(15, 23, 42, 0.08);
+    --radius:      12px;
+    --radius-sm:   8px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
-     margin:         auto;
-     background-color: #eee;
-     font-size:      12pt;
-	   padding-left:   5pt;
+    margin: 0;
+    padding: 32px 16px;
+    background:
+        radial-gradient(1200px 600px at 10% -10%, #e6efff 0%, transparent 60%),
+        radial-gradient(1000px 500px at 90% 0%, #eef3fb 0%, transparent 50%),
+        var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial,
+                 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC",
+                 "WenQuanYi Micro Hei", sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-h1   {
-     font-size:      24pt;
-     font-style:     normal;
-     margin-top:     15px;
+p { margin: 0.6em 0; color: var(--ink); }
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 18px;
+    color: var(--ink);
 }
 
-h2   {
-     font-size:      17pt;
-     font-style:     normal;
-     /* border-bottom: solid 1px #A9A9A9; */
-     color: Brown;
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 36px 0 18px;
+    padding: 6px 0 6px 14px;
+    color: var(--ink);
+    border-left: 4px solid var(--accent);
+    line-height: 1.3;
+    letter-spacing: 0.2px;
 }
 
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
+img { max-width: 100%; max-height: 100%; }
 
+/* ----------- Layout ----------- */
 .main-container {
-     max-width: 100%;
-     background: white;
-     padding: 10px;
-     /* box-shadow: 0 0 5px rgba(107, 110, 112, 0.4); */
+    max-width: 980px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    padding: 36px 44px 44px;
 }
 
 .content-container {
-     box-sizing: border-box;
-     max-width: 900px;
-     width: 100%;
-     margin: 0 auto;
-     margin-bottom: 20px;
-     padding: 10px;
-     overflow: hidden;
-     /* box-shadow: 0 0 5px rgba(107, 110, 112, 0.4); */
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto 20px;
+    padding: 0;
+    overflow: hidden;
 }
 
-.hflex-container{
+.hflex-container {
     display: flex;
-    max-width: 900px;
     width: 100%;
     margin: auto;
-    /* justify-content: center; */
     flex-direction: row;
-    /* justify-content: flex-start; */
-    /* justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly; */
-    /* align-items: stretch | flex-start | flex-end | center | baseline; */
+    gap: 12px;
 }
 
-/*  News styles
---------------------------------------*/
-div.news {
-  width: 100%;
-  max-height: 300px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  margin-top: 0px;
+/* ----------- Links ----------- */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.18s ease, border-color 0.18s ease;
+    border-bottom: 1px solid transparent;
 }
-
-ul.news li { 
-  margin-bottom: 5px; 
-}
-
-/* Hide the default scrollbar */
-div.news::-webkit-scrollbar {
-  width: 6px; /* Set the width of the scrollbar */
-}
-
-/* Handle (the draggable part of the scrollbar) */
-div.news::-webkit-scrollbar-thumb {
-  background: transparent;
-}
-
-/* On hover, style the scrollbar handle */
-div.news:hover::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 6px; /* Rounded corners of the handle */
-}
-
-div.news::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-div.news:hover::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Background color when hovered */
-}
-
-a:link {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-}
-
 a:hover {
-  text-decoration: underline;
+    color: var(--accent-2);
+    text-decoration: none;
+    border-bottom-color: var(--accent-2);
 }
+a:visited { color: var(--accent); }
+a:active  { color: var(--accent-2); }
 
-a:active {
-  text-decoration: underline;
-}
-
-/*  Profile styles
---------------------------------------*/
-
+/* ----------- Profile ----------- */
 #profile {
-  justify-content: flex-start;
-  align-items: flex-start;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 32px;
+    padding: 14px 0 28px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
 }
 
-#profile img{
-    width: 155;
-    max-height: 300px;
-    margin: 8 20 20 20;
-    object-fit: contain;
+#profile > img {
+    width: 180px;
+    height: 230px;
+    max-height: none;
+    margin: 0;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--rule);
+    box-shadow: var(--shadow-md);
+    align-self: center;
 }
 
-/*  Education and Experience styles
---------------------------------------*/
-.imginfo {
-   max-width: 36%;
-   max-height: 160px;
-   display: flex;
-   margin: 0 10px 0 10px;
-   align-items: center;
+#profile > div {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
 }
 
-.imginfo img {
-      width: 36%;
-      margin-right: 20px;
-      object-fit: contain;
+#profile b[style] {
+    font-size: 28px !important;
+    color: var(--ink);
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 4px;
 }
 
-.imginfo p {
-    font-size: 14px;
-}
+#profile table { border-collapse: collapse; width: 100%; }
+#profile table td { padding: 6px 0; color: var(--muted); font-size: 15.5px; line-height: 1.6; }
 
-.edu img{
-  height: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.edu p {
-  display: inline-block;
-}
-
-.experience table, td {
-  vertical-align: top;
-  padding: 3px 5px 3px 5px;
-}
-
-/*  Paper styles
-    FontAwesome reference: http://astronautweb.co/snippet/font-awesome/
---------------------------------------*/
-#paper {
-    border-bottom: solid 1px #EEE;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    /* max-height: 150px; */
-    min-height: 100px;
+#profile a {
+    display: inline-flex;
     align-items: center;
+    gap: 4px;
+    margin-right: 14px;
+    padding: 5px 10px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 14px;
+    line-height: 1.2;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+#profile a:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+    border-bottom-color: transparent;
+}
+#profile a:hover .fa,
+#profile a:hover .iconfont { color: #fff !important; }
+#profile a .fa,
+#profile a .iconfont {
+    color: var(--accent) !important;
+    transition: color 0.18s ease;
+}
+
+/* Mailto pseudo-link (the envelope row) sits as plain text — style its icon */
+#profile .fa-envelope { color: var(--accent) !important; margin-right: 4px; }
+
+/* ----------- Lists ----------- */
+ul {
+    padding-left: 22px;
+    margin: 8px 0;
+}
+ul li { margin-bottom: 4px; }
+
+/* ----------- News ----------- */
+div.news {
+    width: 100%;
+    max-height: 360px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 0;
+    padding: 8px 12px 8px 10px;
+    background: linear-gradient(180deg, #fbfcfe 0%, #f6f9fc 100%);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+}
+
+ul.news {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+ul.news li {
+    position: relative;
+    margin-bottom: 2px;
+    padding: 4px 10px 4px 10px;
+    border-radius: var(--radius-sm);
+    color: var(--ink);
+    line-height: 1.5;
+    transition: background 0.18s ease, transform 0.18s ease;
+}
+ul.news li:hover {
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+    transform: translateX(2px);
+}
+
+/* Date prefix pill ("2026-02:") */
+ul.news li::first-line { font-weight: 500; }
+
+/* News scrollbar */
+div.news::-webkit-scrollbar { width: 8px; }
+div.news::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 8px;
+}
+div.news:hover::-webkit-scrollbar-thumb {
+    background: #c1ccda;
+    border-radius: 8px;
+}
+div.news:hover::-webkit-scrollbar-thumb:hover { background: #9aa8bb; }
+div.news::-webkit-scrollbar-track { background: transparent; }
+
+/* ----------- Experience ----------- */
+.experience { margin-top: 8px; }
+.experience table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+.experience td {
+    vertical-align: top;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+}
+.experience tr td:first-child {
+    white-space: nowrap;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+    width: 200px;
+}
+.experience tr:last-child td { border-bottom: none; }
+.experience tr:hover td { background: #fbfcfe; }
+
+/* ----------- Papers ----------- */
+#paper {
+    border: 1px solid var(--rule);
+    background: #fff;
+    border-radius: var(--radius);
+    margin: 14px 0;
+    padding: 14px 18px 14px 14px;
+    min-height: 110px;
+    align-items: center;
+    gap: 18px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+#paper:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: #cfdaea;
 }
 
 #paper img {
-    width: 200px;
-    max-height: 120px;
-    margin: 8px;
+    width: 210px;
+    max-height: 130px;
+    margin: 0;
     object-fit: contain;
+    border-radius: var(--radius-sm);
+    background: #f6f8fc;
+    padding: 4px;
 }
 
-#paper div {
-  margin: 10px;
-}
+#paper > div { margin: 0; flex: 1; min-width: 0; }
 
 #paper .title {
-    padding: 1px;
-    margin: 1px;
-    font-size: 13pt;
-    font-weight: bold;
+    padding: 0;
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.35;
 }
 
 #paper .authors {
-    padding: 1px;
-    margin: 1px;
-    /* color: #1F618D; */
+    padding: 0;
+    margin: 0 0 6px;
+    color: var(--muted);
     font-style: normal;
+    font-size: 14.5px;
+    line-height: 1.5;
 }
 
 #paper .author_me {
-    color: #943126;
+    color: var(--highlight);
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 #paper .venue {
     display: inline-block;
-    /* color: #500; */
     font-style: italic;
-    margin: 2px;
-    margin-right: 10px;
+    font-size: 14px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin: 2px 8px 6px 0;
+}
+#paper .venue.none { background: transparent; padding: 0; }
+
+/* Link buttons under each paper */
+#paper .pdflink,
+#paper .codelink,
+#paper .pptlink,
+#paper .prjlink {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 8px;
+    margin-top: 4px;
+    padding: 4px 10px;
+    background: #f3f5fa;
+    color: var(--ink);
+    border-radius: 999px;
+    font-size: 13.5px;
+    border-bottom: 1px solid transparent;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+#paper .pdflink:hover,
+#paper .codelink:hover,
+#paper .pptlink:hover,
+#paper .prjlink:hover {
+    background: var(--accent);
+    color: #fff;
+    border-bottom-color: transparent;
+}
+#paper .pdflink:hover::before,
+#paper .codelink:hover::before,
+#paper .pptlink:hover::before,
+#paper .prjlink:hover::before { color: #fff; }
+
+#paper .pdflink::before {
+    font-family: FontAwesome;
+    color: var(--muted);
+    margin: 0 6px 0 0;
+    content: "\f1c1";
+}
+#paper .codelink::before {
+    font-family: FontAwesome;
+    color: var(--muted);
+    margin: 0 6px 0 0;
+    content: "\f09b";
+}
+#paper .pptlink::before {
+    font-family: FontAwesome;
+    color: var(--muted);
+    margin: 0 6px 0 0;
+    content: "\f1c4";
+}
+#paper .prjlink::before {
+    font-family: FontAwesome;
+    color: var(--muted);
+    margin: 0 6px 0 0;
+    content: "\f085";
+}
+#paper .coming {
+    font-family: FontAwesome;
+    font-style: italic;
+    color: gray;
+    margin: 5px;
 }
 
-#paper .pdflink::before{
-  font-family: FontAwesome;
-  color: black;
-  margin: 5 5 5 2;
-  content: "\f1c1";
+/* Venue prefixes (kept) */
+#paper .eccv::before    { content: "European Conference on Computer Vision (ECCV), "; }
+#paper .iccv::before    { content: "International Conference on Computer Vision (ICCV), "; }
+#paper .cvpr::before    { content: "Computer Vision and Pattern Recognition (CVPR), "; }
+#paper .aaai::before    { content: "AAAI Conference on Artificial Intelligence (AAAI), "; }
+#paper .accv::before    { content: "Asia Conference on Computer Vision (ACCV), "; }
+#paper .bmvc::before    { content: "British Machine Vision Conference (BMVC), "; }
+#paper .wacv::before    { content: "IEEE Winter Conference on Applications of Computer Vision (WACV), "; }
+#paper .arxiv::before   { content: "Arxiv Preprint, "; }
+#paper .tip::before     { content: "IEEE Transactions on Image Processing (TIP), "; }
+#paper .tmm::before     { content: "IEEE Transactions on Multimedia (TMM), "; }
+#paper .cvprw::before   { content: "Computer Vision and Pattern Recognition Workshops (CVPRW), "; }
+#paper .eccvw::before   { content: "European Conference on Computer Vision Workshops (ECCVW), "; }
+#paper .icml::before    { content: "International Conference on Machine Learning (ICML), "; }
+#paper .iclr::before    { content: "International Conference on Learning Representations (ICLR), "; }
+#paper .neurips::before { content: "Neural Information Processing Systems (NeurIPS), "; }
+#paper .acmmm::before   { content: "ACM Multimedia Conference (ACMMM), "; }
+#paper .none::before    { content: ""; }
+
+/* ----------- Students & Interns table ----------- */
+.student\&intern {
+    margin-top: 8px;
+    overflow-x: auto;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
 }
-
-#paper .codelink::before{
-  font-family: FontAwesome;
-  color: black;
-  margin: 5 5 5 5;
-  content: "\f09b";
+.student\&intern table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    background: #fff;
 }
-
-#paper .pptlink::before{
-  font-family: FontAwesome;
-  color: black;
-  margin: 5 5 5 5;
-  content: "\f1c4"
+.student\&intern td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
 }
-
-#paper .prjlink::before{
-  font-family: FontAwesome;
-  color: black;
-  margin: 5 5 5 5;
-  content: "\f085"
+.student\&intern tr:first-child td {
+    background: var(--accent-soft);
+    color: var(--ink);
+    font-weight: 600;
+    border-bottom: 1px solid #cfdcea;
 }
+.student\&intern tr:nth-child(even):not(:first-child) td { background: #fafbfd; }
+.student\&intern tr:hover:not(:first-child) td { background: #f1f6fc; }
+.student\&intern tr:last-child td { border-bottom: none; }
 
-#paper .coming{
-  font-family: FontAwesome;
-  font-style: italic;
-  color: gray;
-  margin: 5 5 5 5;
+/* ----------- Misc legacy classes still in the file ----------- */
+.imginfo {
+    max-width: 36%;
+    max-height: 160px;
+    display: flex;
+    margin: 0 10px;
+    align-items: center;
 }
-
-#paper .eccv::before {
-  content: "European Conference on Computer Vision (ECCV), "
+.imginfo img {
+    width: 36%;
+    margin-right: 20px;
+    object-fit: contain;
 }
+.imginfo p { font-size: 14px; }
 
-
-#paper .iccv::before {
-  content: "International Conference on Computer Vision (ICCV), "
+.edu img {
+    height: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
+.edu p { display: inline-block; }
 
-#paper .cvpr::before {
-  content: "Computer Vision and Pattern Recognition (CVPR), "
-}
+/* ----------- Responsive ----------- */
+@media (max-width: 760px) {
+    body { padding: 14px 8px; font-size: 14.5px; }
+    .main-container { padding: 22px 18px 28px; border-radius: 12px; }
+    h2 { font-size: 19px; margin-top: 28px; }
 
-#paper .aaai::before {
-  content: "AAAI Conference on Artificial Intelligence (AAAI), "
-}
+    #profile { flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+    #profile > img { width: 160px; height: 200px; }
+    #profile a { margin-right: 6px; margin-bottom: 6px; }
 
-#paper .accv::before {
-  content: "Asia Conference on Computer Vision (ACCV), "
-}
+    .hflex-container { flex-direction: column; }
 
-#paper .bmvc::before {
-  content: "British Machine Vision Conference (BMVC), "
-}
+    #paper { padding: 14px; }
+    #paper img { width: 100%; max-height: 200px; }
 
-#paper .wacv::before {
-  content: "IEEE Winter Conference on Applications of Computer Vision (WACV), "
-}
-
-#paper .arxiv::before {
-  content: "Arxiv Preprint, "
-}
-
-#paper .tip::before{
-  content: "IEEE Transactions on Image Processing (TIP), "
-}
-
-#paper .tmm::before{
-  content: "IEEE Transactions on Multimedia (TMM), "
-}
-
-#paper .cvprw::before {
-  content: "Computer Vision and Pattern Recognition Workshops (CVPRW), "
-}
-
-#paper .eccvw::before {
-  content: "European Conference on Computer Vision Workshops (ECCVW), "
-}
-
-#paper .icml::before {
-  content: "International Conference on Machine Learning (ICML) , "
-}
-
-#paper .iclr::before {
-  content: "International Conference on Learning Representations (ICLR) , "
-}
-
-#paper .neurips::before {
-  content: "Neural Information Processing Systems (NeurIPS) , "
-}
-
-#paper .acmmm::before {
-  content: "ACM Multimedia Conference (ACMMM) , "
-}
-
-#paper .none::before {
-  content: ""
+    .experience tr td:first-child { width: auto; white-space: normal; }
 }
